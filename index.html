@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHT Calculator</title>
+<script>
+function calculateJobs() {
+    var hours = parseInt(document.getElementById('time').value);
+    var minutes = parseInt(document.getElementById('minutes').value);
+    var totalMinutes = (hours * 60) + minutes;
+    var aht = parseFloat(document.getElementById('aht').value);
+    var totalSeconds = totalMinutes * 60;
+    var jobs = totalSeconds / aht;
+    document.getElementById('result').innerText = 'Total jobs you should finish: ' + Math.floor(jobs);
+}
+</script>
+</head>
+<body>
+
+<h2>AHT Calculator</h2>
+
+<label for="time">Hours you will work:</label><br>
+<input type="number" id="time" placeholder="Enter hours" required><br><br>
+
+<label for="minutes">Minutes:</label><br>
+<input type="number" id="minutes" placeholder="Enter minutes" required><br><br>
+
+<label for="aht">Target AHT (in seconds):</label><br>
+<input type="number" id="aht" placeholder="Enter AHT in seconds" required><br><br>
+
+<button onclick="calculateJobs()">Calculate Jobs</button>
+
+<p id="result"></p>
+
+</body>
+</html>
